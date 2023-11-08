@@ -67,47 +67,7 @@ function App() {
               className="block py-2 pr-4 pl-3 text-white rounded bg-blue-700 lg:bg-transparent lg:text-blue-700 lg:p-0 dark:text-white"
               aria-current="page"
             >
-              Home
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
-            >
-              Company
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
-            >
-              Marketplace
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
-            >
-              Features
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
-            >
-              Team
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
-            >
-              Contact
+              Case Studies
             </a>
           </li>
         </ul>
@@ -134,19 +94,19 @@ function App() {
         </div>
       </div>
     </section>
-    <section className="bg-white dark:bg-gray-900 pt-8 mb-4">
-      <div className="px-4 mx-auto max-w-screen-xl text-center lg:px-6">
+    <section className="bg-white dark:bg-gray-900 py-8">
+      <div className="mx-auto max-w-screen-2xl text-center px-4 py-8">
         <h2 className="mb-4 text-4xl tracking-tight font-bold text-gray-900 dark:text-white">
           Case Studies
         </h2>
-        <p className="text-gray-500 sm:text-xl dark:text-gray-400">
-          A range of projects that I've been part of throughout my career
+        <p className="text-gray-500 sm:text-lg dark:text-gray-400 max-w-2xl mx-auto">
+          A showcase of my web development projects. Explore my solutions to diverse challenges and discover my commitment to excellence.
         </p>
       </div>
       <div className="gap-16 items-center px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:px-6 mt-4">
         <div className="">
           <h2 className="mb-4 text-2xl tracking-tight font-semibold text-gray-900 dark:text-white">
-            EKM Dashboard UI
+            EKM UI
           </h2>
           <p className="mb-4 font-normal text-gray-600">
             In this project, I harnessed the power of React to convert a Figma design into a dynamic frontend UI. Discover how I bridged the gap between design and functionality, transforming static visuals into an interactive web experience. 
@@ -168,7 +128,7 @@ function App() {
         </div>
       </div>
     </section>
-<footer className="bg-gray-50 dark:bg-gray-800 mt-16">
+<footer className="bg-gray-50 dark:bg-gray-800 mt-64">
   <div className="p-4 py-6 mx-auto max-w-screen-xl md:p-8 lg:-10">
     <div className="grid grid-cols-2 gap-8 lg:grid-cols-6">
       <div className="col-span-2">
@@ -240,27 +200,12 @@ function App() {
 
       <div className="lg:mx-auto">
         <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-          Download
+          Case Studies
         </h2>
         <ul className="text-gray-500 dark:text-gray-400">
           <li className="mb-4">
             <a href="#" className="hover:underline">
-              iOS
-            </a>
-          </li>
-          <li className="mb-4">
-            <a href="#" className="hover:underline">
-              Android
-            </a>
-          </li>
-          <li className="mb-4">
-            <a href="#" className="hover:underline">
-              Windows
-            </a>
-          </li>
-          <li className="mb-4">
-            <a href="#" className="hover:underline">
-              MacOS
+              EKM UI
             </a>
           </li>
         </ul>
