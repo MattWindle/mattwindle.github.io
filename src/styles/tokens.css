@@ -1,0 +1,42 @@
+:root {
+  /* Palette (see DESIGN.md) */
+  --color-black: #000000;
+  --color-navy: #14213d;
+  --color-orange: #fca311; /* accent only, never as text on white */
+  --color-grey: #e5e5e5;
+  --color-white: #ffffff;
+  --color-text-muted: #4b5266;
+
+  /* Typography */
+  --font-heading: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  --font-size-body: 17px;
+  --font-size-small: 14px;
+  --font-size-tag: 13px;
+  --font-size-h1: 62px;
+  --font-size-h1-mobile: 42px;
+  --font-size-h2: 38px;
+  --font-size-h3: 28px;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  /* Corner radii: rounded, but not huge */
+  --radius-tag: 8px;
+  --radius-button: 10px;
+  --radius-card: 14px;
+  --radius-card-large: 20px;
+  --radius-round: 50%;
+
+  /* Layout */
+  --layout-max-width: 1120px;
+  --layout-gutter: 32px;
+  --section-padding-block: 96px;
+
+  /* Motion */
+  --motion-duration-fast: 0.2s;
+  --motion-duration-medium: 0.25s;
+  --motion-duration-slow: 0.8s;
+}
