@@ -1,0 +1,29 @@
+---
+// The small label above the banner headline, with an orange dot.
+---
+
+<p class="chip">
+  <span class="chip__dot" aria-hidden="true"></span>
+  <slot />
+</p>
+
+<style>
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 14px;
+    background: var(--color-grey);
+    border-radius: var(--radius-tag);
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-navy);
+  }
+
+  .chip__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: var(--radius-round);
+    background: var(--color-orange);
+  }
+</style>

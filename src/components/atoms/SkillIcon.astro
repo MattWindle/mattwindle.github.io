@@ -1,0 +1,17 @@
+---
+import { SKILL_ICON_VIEW_BOX } from '../../data/skills.js';
+
+const ICON_SIZE_PX = 44;
+
+// `svgMarkup` is the inner SVG content from src/data/skills.js
+const { svgMarkup, size = ICON_SIZE_PX } = Astro.props;
+---
+
+<svg
+  width={size}
+  height={size}
+  viewBox={SKILL_ICON_VIEW_BOX}
+  aria-hidden="true"
+  focusable="false"
+  set:html={svgMarkup}
+/>

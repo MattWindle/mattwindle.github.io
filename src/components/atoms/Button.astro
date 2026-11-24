@@ -1,0 +1,50 @@
+---
+const BUTTON_VARIANTS = {
+  PRIMARY: 'primary',
+  SECONDARY: 'secondary',
+};
+
+const { href, variant = BUTTON_VARIANTS.PRIMARY } = Astro.props;
+---
+
+<a class={`button button--${variant}`} href={href}>
+  <slot />
+</a>
+
+<style>
+  .button {
+    display: inline-block;
+    font-size: 15px;
+    font-weight: var(--font-weight-medium);
+    text-decoration: none;
+    border-radius: var(--radius-button);
+    transition: transform var(--motion-duration-fast) ease;
+  }
+
+  .button:hover {
+    transform: translateY(-2px);
+  }
+
+  .button--primary {
+    padding: 10px 20px;
+    background: var(--color-orange);
+    color: var(--color-black);
+  }
+
+  .button--secondary {
+    /* 2px smaller padding to make up for the 2px border, so both buttons match in size */
+    padding: 8px 18px;
+    border: 2px solid var(--color-navy);
+    color: var(--color-navy);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .button {
+      transition: none;
+    }
+
+    .button:hover {
+      transform: none;
+    }
+  }
+</style>

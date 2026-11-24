@@ -1,0 +1,85 @@
+---
+import CodeWindow from './CodeWindow.astro';
+import FloatingBadge from './FloatingBadge.astro';
+
+const { badgeText, placeholderText } = Astro.props;
+---
+
+<div class="dot-grid-panel">
+  <div class="dot-grid-panel__ring animate-spin-slow" aria-hidden="true"></div>
+  <div class="dot-grid-panel__surface" aria-hidden="true"></div>
+  <div class="dot-grid-panel__orange-block" aria-hidden="true"></div>
+
+  <div class="dot-grid-panel__code">
+    <div class="animate-float"><CodeWindow /></div>
+  </div>
+
+  <div class="dot-grid-panel__badge animate-float-reverse">
+    <FloatingBadge>{badgeText}</FloatingBadge>
+  </div>
+
+  <!-- Swap this fallback for a photo or illustration with: <Fragment slot="photo">…</Fragment> -->
+  <slot name="photo">
+    <p class="dot-grid-panel__placeholder">{placeholderText}</p>
+  </slot>
+</div>
+
+<style>
+  .dot-grid-panel {
+    position: relative;
+    flex: 1;
+    min-height: 420px;
+  }
+
+  .dot-grid-panel__ring {
+    position: absolute;
+    right: -28px;
+    top: -28px;
+    width: 120px;
+    height: 120px;
+    border: 3px dashed var(--color-orange);
+    border-radius: var(--radius-round);
+  }
+
+  .dot-grid-panel__surface {
+    position: absolute;
+    inset: 0;
+    background-color: var(--color-navy);
+    background-image: radial-gradient(rgba(255, 255, 255, 0.18) 1.5px, transparent 1.5px);
+    background-size: 22px 22px;
+    border-radius: var(--radius-card-large);
+  }
+
+  .dot-grid-panel__orange-block {
+    position: absolute;
+    left: -18px;
+    bottom: -18px;
+    width: 90px;
+    height: 90px;
+    background: var(--color-orange);
+    border-radius: 16px;
+  }
+
+  .dot-grid-panel__code {
+    position: absolute;
+    left: 12%;
+    right: 12%;
+    top: 16%;
+  }
+
+  .dot-grid-panel__badge {
+    position: absolute;
+    right: 6%;
+    bottom: 12%;
+  }
+
+  .dot-grid-panel__placeholder {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 12px;
+    text-align: center;
+    font-size: var(--font-size-tag);
+    color: var(--color-grey);
+  }
+</style>

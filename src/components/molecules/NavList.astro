@@ -1,0 +1,22 @@
+---
+import NavLink from './NavLink.astro';
+import { NAVIGATION_LINKS } from '../../data/navigation.js';
+---
+
+<nav aria-label="Primary">
+  <ul class="nav-list">
+    {NAVIGATION_LINKS.map(({ label, href }) => (
+      <li><NavLink href={href}>{label}</NavLink></li>
+    ))}
+  </ul>
+</nav>
+
+<style>
+  .nav-list {
+    display: flex;
+    gap: 28px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+</style>

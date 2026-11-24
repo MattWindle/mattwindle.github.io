@@ -1,0 +1,103 @@
+---
+import Heading from '../atoms/Heading.astro';
+import Tag from '../atoms/Tag.astro';
+import ArrowButton from '../atoms/ArrowButton.astro';
+import ProjectImageBlock from './ProjectImageBlock.astro';
+
+const NUMBER_DIGITS = 2;
+
+// `stickyTopPx` is worked out by the ProjectStack organism from the card's position.
+const { project, index, stickyTopPx } = Astro.props;
+const { hashtag, title, description, tags, shapeVariant, href } = project;
+
+const cardNumber = String(index + 1).padStart(NUMBER_DIGITS, '0');
+---
+
+<article class="project-card" style={`--sticky-top: ${stickyTopPx}px`}>
+  <div class="project-card__image">
+    <ProjectImageBlock hashtag={hashtag} number={cardNumber} shapeVariant={shapeVariant} />
+  </div>
+
+  <div class="project-card__content">
+    <div>
+      <div class="project-card__title">
+        <Heading level={3}>{title}</Heading>
+      </div>
+      <p class="project-card__description">{description}</p>
+    </div>
+
+    <div class="project-card__footer">
+      <ul class="project-card__tags">
+        {tags.map((tag) => <li><Tag>{tag}</Tag></li>)}
+      </ul>
+      <ArrowButton href={href} label={`View ${title}`} />
+    </div>
+  </div>
+</article>
+
+<style>
+  .project-card {
+    position: sticky;
+    top: var(--sticky-top);
+    display: flex;
+    gap: 28px;
+    margin-bottom: 48px;
+    padding: 14px;
+    background: var(--color-white);
+    border: 2px solid var(--color-grey);
+    border-radius: var(--radius-card-large);
+    box-shadow: 0 -8px 24px rgba(20, 33, 61, 0.08);
+  }
+
+  .project-card__image {
+    flex: none;
+    width: 300px;
+  }
+
+  .project-card__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px 18px 6px 0;
+  }
+
+  .project-card__title {
+    margin-bottom: 12px;
+  }
+
+  .project-card__description {
+    color: var(--color-text-muted);
+  }
+
+  .project-card__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .project-card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  @media (max-width: 820px) {
+    .project-card {
+      flex-direction: column;
+    }
+
+    .project-card__image {
+      width: auto;
+    }
+
+    .project-card__content {
+      padding: 0 4px 6px;
+      gap: 20px;
+    }
+  }
+</style>

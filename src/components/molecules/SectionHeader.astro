@@ -1,0 +1,41 @@
+---
+import SectionLabel from '../atoms/SectionLabel.astro';
+import Heading from '../atoms/Heading.astro';
+
+// `tone` is 'on-light' (white background) or 'on-dark' (navy band).
+// It is passed straight through to the label and heading atoms.
+const SECTION_TONES = {
+  ON_LIGHT: 'on-light',
+  ON_DARK: 'on-dark',
+};
+
+const { label, heading, intro, tone = SECTION_TONES.ON_LIGHT } = Astro.props;
+---
+
+<div class="section-header">
+  <div class="section-header__label">
+    <SectionLabel tone={tone}>{label}</SectionLabel>
+  </div>
+  <div class="section-header__heading">
+    <Heading level={2} tone={tone}>{heading}</Heading>
+  </div>
+  <p class={`section-header__intro section-header__intro--${tone}`}>{intro}</p>
+</div>
+
+<style>
+  .section-header__label {
+    margin-bottom: 10px;
+  }
+
+  .section-header__heading {
+    margin-bottom: 8px;
+  }
+
+  .section-header__intro--on-light {
+    color: var(--color-text-muted);
+  }
+
+  .section-header__intro--on-dark {
+    color: var(--color-grey);
+  }
+</style>

@@ -1,0 +1,48 @@
+---
+const { href, label } = Astro.props;
+---
+
+<a class="arrow-button" href={href} aria-label={label}>
+  <svg
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2.2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    aria-hidden="true"
+  >
+    <path d="M5 12h14M13 6l6 6-6 6" />
+  </svg>
+</a>
+
+<style>
+  .arrow-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-round);
+    background: var(--color-orange);
+    color: var(--color-black);
+    transition: transform var(--motion-duration-medium) ease;
+  }
+
+  .arrow-button:hover {
+    transform: rotate(-45deg);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .arrow-button {
+      transition: none;
+    }
+
+    .arrow-button:hover {
+      transform: none;
+    }
+  }
+</style>

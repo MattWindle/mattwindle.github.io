@@ -1,0 +1,58 @@
+---
+// A decorative "code editor" made of coloured bars.
+const WINDOW_DOT_TONES = ['orange', 'grey', 'grey'];
+
+const CODE_BARS = [
+  { widthPercent: 60, tone: 'navy' },
+  { widthPercent: 85, tone: 'grey' },
+  { widthPercent: 45, tone: 'orange' },
+  { widthPercent: 75, tone: 'grey' },
+];
+---
+
+<div class="code-window" aria-hidden="true">
+  <div class="code-window__dots">
+    {WINDOW_DOT_TONES.map((tone) => <span class={`code-window__dot code-window__dot--${tone}`}></span>)}
+  </div>
+  {CODE_BARS.map(({ widthPercent, tone }) => (
+    <div class={`code-window__bar code-window__bar--${tone}`} style={`width: ${widthPercent}%`}></div>
+  ))}
+</div>
+
+<style>
+  .code-window {
+    padding: 22px;
+    background: var(--color-white);
+    border-radius: var(--radius-card);
+    box-shadow: 0 16px 34px rgba(0, 0, 0, 0.3);
+  }
+
+  .code-window__dots {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+
+  .code-window__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: var(--radius-round);
+  }
+
+  .code-window__dot--orange { background: var(--color-orange); }
+  .code-window__dot--grey   { background: var(--color-grey); }
+
+  .code-window__bar {
+    height: 10px;
+    margin-bottom: 12px;
+    border-radius: 5px;
+  }
+
+  .code-window__bar:last-child {
+    margin-bottom: 0;
+  }
+
+  .code-window__bar--navy   { background: var(--color-navy); }
+  .code-window__bar--grey   { background: var(--color-grey); }
+  .code-window__bar--orange { background: var(--color-orange); }
+</style>

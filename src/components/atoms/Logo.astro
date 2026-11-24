@@ -1,0 +1,30 @@
+---
+import { SITE_NAME } from '../../data/site.js';
+
+const { href = '#top' } = Astro.props;
+---
+
+<a class="logo" href={href}>
+  <span class="logo__square" aria-hidden="true"></span>
+  {SITE_NAME}
+</a>
+
+<style>
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-heading);
+    font-weight: var(--font-weight-bold);
+    font-size: 22px;
+    text-decoration: none;
+  }
+
+  .logo__square {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background: var(--color-orange);
+    border-radius: 4px;
+  }
+</style>

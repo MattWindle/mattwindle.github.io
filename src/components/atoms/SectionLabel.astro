@@ -1,0 +1,41 @@
+---
+// The small numbered label above a section heading, e.g. "01 / SKILLS".
+// `on-dark` is for the navy Skills band, `on-light` is for white backgrounds.
+const LABEL_TONES = {
+  ON_DARK: 'on-dark',
+  ON_LIGHT: 'on-light',
+};
+
+const { tone = LABEL_TONES.ON_LIGHT } = Astro.props;
+---
+
+<p class={`section-label section-label--${tone}`}>
+  <slot />
+</p>
+
+<style>
+  .section-label {
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-medium);
+    letter-spacing: 0.12em;
+  }
+
+  /* Orange text is only ever used on navy, never on white. */
+  .section-label--on-dark {
+    color: var(--color-orange);
+  }
+
+  .section-label--on-light {
+    color: var(--color-navy);
+  }
+
+  .section-label--on-light::before {
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 8px;
+    background: var(--color-orange);
+    border-radius: 3px;
+  }
+</style>
