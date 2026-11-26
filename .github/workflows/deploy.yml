@@ -14,17 +14,20 @@ concurrency:
   group: pages
   cancel-in-progress: false
 
+env:
+  BUILD_NODE_VERSION: 22
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Install, build and upload the site
-        uses: withastro/action@v3
+        uses: withastro/action@v5
         with:
-          node-version: 22
+          node-version: ${{ env.BUILD_NODE_VERSION }}
           package-manager: npm
 
   deploy:
