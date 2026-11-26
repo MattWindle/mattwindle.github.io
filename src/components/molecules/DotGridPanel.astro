@@ -1,6 +1,5 @@
 ---
 import CodeWindow from './CodeWindow.astro';
-import FloatingBadge from './FloatingBadge.astro';
 
 const { badgeText, placeholderText } = Astro.props;
 ---
@@ -13,11 +12,7 @@ const { badgeText, placeholderText } = Astro.props;
   <div class="dot-grid-panel__code">
     <div class="animate-float"><CodeWindow /></div>
   </div>
-
-  <div class="dot-grid-panel__badge animate-float-reverse">
-    <FloatingBadge>{badgeText}</FloatingBadge>
-  </div>
-
+  
   <!-- Swap this fallback for a photo or illustration with: <Fragment slot="photo">…</Fragment> -->
   <slot name="photo">
     <p class="dot-grid-panel__placeholder">{placeholderText}</p>

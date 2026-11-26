@@ -31,11 +31,11 @@
 }
 
 .animate-float-reverse {
-  animation: float 7s 1s ease-in-out infinite reverse;
+  animation: float 3s 1s ease-in-out infinite reverse;
 }
 
 .animate-spin-slow {
-  animation: spin 24s linear infinite;
+  animation: spin 60s linear infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -3,21 +3,17 @@ export const SITE_NAME = 'Matt Windle';
 export const SITE_TITLE = 'Matt Windle | Front-end developer';
 
 export const SITE_DESCRIPTION =
-  'Front-end developer building fast, accessible HubSpot sites: custom modules, templates and serverless functions.';
+  'Matt is a web developer designing and building fast, accessible digital experiences, bespoke websites and custom solutions with a focus on performance, quality and detail.';
 
 export const CONTACT_EMAIL = '[YOUR EMAIL]'; // placeholder, replace before launch
 
 export const banner = {
   label: 'Front-end developer',
-  headlineBeforeHighlight: 'I build fast, accessible',
-  headlineHighlight: 'HubSpot',
-  headlineAfterHighlight: 'sites.',
-  intro:
-    'Hi, I’m Matt. Custom modules, templates and serverless functions for clients, with clean HubL, HubDB and JavaScript underneath.',
+  headlineBeforeHighlight: 'Good ideas deserve ',
+  headlineHighlight: 'good development.',
+  intro: "Hi, I'm Matt. I design and build digital experiences that look great, work brilliantly and perform where it matters. I work across the web development stack, bringing together clean code, thoughtful solutions and a healthy obsession with the details.",
   primaryButton: { text: 'View projects', href: '#projects' },
   secondaryButton: { text: 'Get in touch', href: '#contact' },
-  badgeText: 'HubSpot CMS',
-  photoPlaceholderText: 'Photo or illustration goes here',
 };
 
 export const skillsSection = {
