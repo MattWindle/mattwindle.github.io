@@ -28,11 +28,11 @@ export const skillsSection = {
 
 export const projectsSection = {
   label: '02 / PROJECTS',
-  heading: 'Selected work',
-  intro: 'A few things I’ve built. Each will get its own page.',
+  heading: 'Featured work',
+  intro: 'A few things I have built as a developer ',
 };
 
 export const contactSection = {
-  heading: 'Let’s work together',
+  heading: 'Lets work together',
   intro: 'Got a HubSpot build in mind? Say hello.',
 };
