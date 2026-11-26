@@ -23,7 +23,7 @@ export const banner = {
 export const skillsSection = {
   label: '01 / SKILLS',
   heading: 'The tools I work with',
-  intro: 'Hover the strip to pause it.',
+  intro: '',
 };
 
 export const projectsSection = {
