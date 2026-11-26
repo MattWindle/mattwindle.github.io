@@ -1,8 +1,10 @@
+
 name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
@@ -14,28 +16,29 @@ concurrency:
   group: pages
   cancel-in-progress: false
 
-env:
-  BUILD_NODE_VERSION: 22
-
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Check out the repository
+      - name: Checkout repository
         uses: actions/checkout@v5
 
       - name: Install, build and upload the site
         uses: withastro/action@v5
         with:
-          node-version: ${{ env.BUILD_NODE_VERSION }}
+          node-version: 22
           package-manager: npm
+          build-cmd: npm run build
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
+
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
