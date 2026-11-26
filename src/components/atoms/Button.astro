@@ -2,6 +2,7 @@
 const BUTTON_VARIANTS = {
   PRIMARY: 'primary',
   SECONDARY: 'secondary',
+  DARK: 'dark',
 };
 
 const { href, variant = BUTTON_VARIANTS.PRIMARY } = Astro.props;
@@ -36,6 +37,14 @@ const { href, variant = BUTTON_VARIANTS.PRIMARY } = Astro.props;
     padding: 8px 18px;
     border: 2px solid var(--color-navy);
     color: var(--color-navy);
+  }
+
+  /* Larger navy button, used for the email address in the footer */
+  .button--dark {
+    padding: 14px 28px;
+    background: var(--color-navy);
+    color: var(--color-white);
+    font-size: var(--font-size-body);
   }
 
   @media (prefers-reduced-motion: reduce) {

@@ -1,0 +1,33 @@
+---
+import Heading from '../atoms/Heading.astro';
+import Button from '../atoms/Button.astro';
+import { CONTACT_EMAIL, contactSection } from '../../data/site.js';
+
+const emailHref = `mailto:${CONTACT_EMAIL}`;
+---
+
+<footer id="contact" class="site-footer">
+  <div class="site-footer__heading">
+    <Heading level={2}>{contactSection.heading}</Heading>
+  </div>
+  <p class="site-footer__intro">{contactSection.intro}</p>
+  <Button href={emailHref} variant="dark">{CONTACT_EMAIL}</Button>
+</footer>
+
+<style>
+  .site-footer {
+    padding: 80px var(--layout-gutter);
+    background: var(--color-grey);
+    border-top: 6px solid var(--color-orange);
+    text-align: center;
+  }
+
+  .site-footer__heading {
+    margin-bottom: 12px;
+  }
+
+  .site-footer__intro {
+    margin-bottom: 28px;
+    color: var(--color-text-muted);
+  }
+</style>

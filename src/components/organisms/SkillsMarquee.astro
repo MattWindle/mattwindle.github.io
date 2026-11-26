@@ -1,0 +1,101 @@
+---
+import SectionHeader from '../molecules/SectionHeader.astro';
+import SkillTile from '../molecules/SkillTile.astro';
+import { SKILLS } from '../../data/skills.js';
+import { skillsSection } from '../../data/site.js';
+
+// The list of logos is repeated so the strip always fills a wide screen.
+// It slides left by exactly one copy, then loops, so the join is invisible.
+const MARQUEE_COPIES = 4;
+const SECONDS_PER_SKILL = 5; // keeps the scroll speed steady as skills are added
+
+const marqueeDurationSeconds = SKILLS.length * SECONDS_PER_SKILL;
+const copyNumbers = Array.from({ length: MARQUEE_COPIES }, (_, copyIndex) => copyIndex);
+const isDuplicateCopy = (copyIndex) => copyIndex > 0;
+---
+
+<section id="skills" class="skills-marquee">
+  <div class="container skills-marquee__header">
+    <SectionHeader
+      label={skillsSection.label}
+      heading={skillsSection.heading}
+      intro={skillsSection.intro}
+      tone="on-dark"
+    />
+  </div>
+
+  <div class="skills-marquee__viewport">
+    <div
+      class="skills-marquee__track"
+      style={`--marquee-copies: ${MARQUEE_COPIES}; --marquee-duration: ${marqueeDurationSeconds}s`}
+    >
+      {copyNumbers.map((copyIndex) => (
+        <ul
+          class={`skills-marquee__set ${isDuplicateCopy(copyIndex) ? 'skills-marquee__set--duplicate' : ''}`}
+          aria-hidden={isDuplicateCopy(copyIndex) ? 'true' : undefined}
+        >
+          {SKILLS.map(({ name, svgMarkup }) => (
+            <SkillTile name={name} svgMarkup={svgMarkup} />
+          ))}
+        </ul>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .skills-marquee {
+    padding-block: 80px;
+    background: var(--color-navy);
+    overflow: hidden;
+  }
+
+  .skills-marquee__header {
+    padding-bottom: 40px;
+  }
+
+  .skills-marquee__viewport {
+    overflow: hidden;
+  }
+
+  .skills-marquee__track {
+    display: flex;
+    width: max-content;
+    animation: marquee-scroll var(--marquee-duration) linear infinite;
+  }
+
+  .skills-marquee__track:hover {
+    animation-play-state: paused;
+  }
+
+  /* The right padding equals the gap, so every copy is exactly the same width */
+  .skills-marquee__set {
+    display: flex;
+    gap: 16px;
+    margin: 0;
+    padding: 0 16px 0 0;
+    list-style: none;
+  }
+
+  @keyframes marquee-scroll {
+    to {
+      transform: translateX(calc(-100% / var(--marquee-copies)));
+    }
+  }
+
+  /* No motion: show one copy and let people scroll it sideways instead */
+  @media (prefers-reduced-motion: reduce) {
+    .skills-marquee__track {
+      animation: none;
+    }
+
+    .skills-marquee__viewport {
+      overflow-x: auto;
+      padding-inline: var(--layout-gutter);
+    }
+
+    .skills-marquee__set--duplicate {
+      display: none;
+    }
+  }
+</style>

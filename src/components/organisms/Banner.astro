@@ -1,0 +1,100 @@
+---
+import Chip from '../atoms/Chip.astro';
+import Heading from '../atoms/Heading.astro';
+import Button from '../atoms/Button.astro';
+import DotGridPanel from '../molecules/DotGridPanel.astro';
+import { banner } from '../../data/site.js';
+
+const {
+  label,
+  headlineBeforeHighlight,
+  headlineHighlight,
+  headlineAfterHighlight,
+  intro,
+  primaryButton,
+  secondaryButton,
+  badgeText,
+  photoPlaceholderText,
+} = banner;
+---
+
+<section id="top" class="banner">
+  <div class="container banner__inner">
+    <div class="banner__text animate-rise">
+      <div class="banner__chip">
+        <Chip>{label}</Chip>
+      </div>
+
+      <div class="banner__heading">
+        <Heading level={1}>{headlineBeforeHighlight} <span class="heading-highlight">{headlineHighlight}</span> {headlineAfterHighlight}</Heading>
+      </div>
+
+      <p class="banner__intro">{intro}</p>
+
+      <div class="banner__actions">
+        <Button href={primaryButton.href}>{primaryButton.text}</Button>
+        <Button href={secondaryButton.href} variant="secondary">{secondaryButton.text}</Button>
+      </div>
+    </div>
+
+    <div class="banner__visual animate-rise-delayed">
+      <DotGridPanel badgeText={badgeText} placeholderText={photoPlaceholderText} />
+    </div>
+  </div>
+</section>
+
+<style>
+  .banner {
+    /* The spinning ring sits slightly outside the panel; clip it so the page never scrolls sideways */
+    overflow-x: clip;
+    padding-block: 40px 96px;
+  }
+
+  .banner__inner {
+    display: flex;
+    align-items: center;
+    gap: 64px;
+  }
+
+  .banner__text {
+    flex: 1.05;
+  }
+
+  .banner__visual {
+    display: flex;
+    flex: 1;
+  }
+
+  .banner__chip {
+    margin-bottom: 20px;
+  }
+
+  .banner__heading {
+    margin-bottom: 22px;
+  }
+
+  .banner__intro {
+    max-width: 480px;
+    margin-bottom: 34px;
+    color: var(--color-text-muted);
+  }
+
+  .banner__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  @media (max-width: 820px) {
+    .banner__inner {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 48px;
+    }
+
+    .banner__text,
+    .banner__visual {
+      flex: none;
+    }
+  }
+</style>

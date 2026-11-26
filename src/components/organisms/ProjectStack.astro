@@ -1,0 +1,38 @@
+---
+import SectionHeader from '../molecules/SectionHeader.astro';
+import ProjectCard from '../molecules/ProjectCard.astro';
+import { PROJECTS } from '../../data/projects.js';
+import { projectsSection } from '../../data/site.js';
+
+// Each card sticks 25px lower than the one before: 24, 49, 74, 99px.
+const BASE_STICKY_OFFSET_PX = 24;
+const STICKY_STEP_PX = 25;
+
+const getStickyTopPx = (cardIndex) => BASE_STICKY_OFFSET_PX + cardIndex * STICKY_STEP_PX;
+---
+
+<section id="projects" class="project-stack container">
+  <div class="project-stack__header">
+    <SectionHeader
+      label={projectsSection.label}
+      heading={projectsSection.heading}
+      intro={projectsSection.intro}
+    />
+  </div>
+
+  <div class="project-stack__cards">
+    {PROJECTS.map((project, index) => (
+      <ProjectCard project={project} index={index} stickyTopPx={getStickyTopPx(index)} />
+    ))}
+  </div>
+</section>
+
+<style>
+  .project-stack {
+    padding-block: var(--section-padding-block);
+  }
+
+  .project-stack__header {
+    margin-bottom: 44px;
+  }
+</style>
