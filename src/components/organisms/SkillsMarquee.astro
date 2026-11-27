@@ -7,7 +7,7 @@ import { skillsSection } from '../../data/site.js';
 // The list of logos is repeated so the strip always fills a wide screen.
 // It slides left by exactly one copy, then loops, so the join is invisible.
 const MARQUEE_COPIES = 4;
-const SECONDS_PER_SKILL = 5; // keeps the scroll speed steady as skills are added
+const SECONDS_PER_SKILL = 3; // keeps the scroll speed steady as skills are added
 
 const marqueeDurationSeconds = SKILLS.length * SECONDS_PER_SKILL;
 const copyNumbers = Array.from({ length: MARQUEE_COPIES }, (_, copyIndex) => copyIndex);
